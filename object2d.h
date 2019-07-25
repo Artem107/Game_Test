@@ -11,6 +11,8 @@ private:
 
     CircleShape object;
 
+    bool m_ForwardPressed;
+    bool m_BackPressed;
     bool m_LeftPressed;
     bool m_RightPressed;
 
@@ -20,15 +22,25 @@ public:
     Object2D();
     CircleShape getObject();
 
-    void moveLeft();
+    void moveForward();
 
-    void moveRight();
+    void moveBack();
 
+    void stopForward();
+
+    void stopBack();
+    
+    void rotateLeft();
+    
+    void rotateRight();
+    
     void stopLeft();
-
+    
     void stopRight();
 
     void update(float elapsedTime);
+
+    int zeroFunc(int value);
 };
 
 #endif // OBJECT2D_H

@@ -46,22 +46,22 @@ void Engine::input()
     }
 
     // Обрабатываем нажатие клавиш движения
-    if (Keyboard::isKeyPressed(Keyboard::A))
+    if (Keyboard::isKeyPressed(Keyboard::W))
     {
-        object2D.moveLeft();
+        object2D.moveForward();
     }
     else
     {
-        object2D.stopLeft();
+        object2D.stopForward();
     }
 
-    if (Keyboard::isKeyPressed(Keyboard::D))
+    if (Keyboard::isKeyPressed(Keyboard::S))
     {
-        object2D.moveRight();
+        object2D.moveBack();
     }
     else
     {
-        object2D.stopRight();
+        object2D.stopBack();
     }
 
 }
