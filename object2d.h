@@ -1,15 +1,19 @@
 #ifndef OBJECT2D_H
 #define OBJECT2D_H
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 using namespace sf;
+using namespace std;
 
 class Object2D
 {
 private:
     Vector2f Position;
+    float angle;
 
     CircleShape object;
+    CircleShape direction;
 
     bool m_ForwardPressed;
     bool m_BackPressed;
@@ -17,10 +21,13 @@ private:
     bool m_RightPressed;
 
     float speed;
+    float rotate;
+    float angleOld;
 
 public:
     Object2D();
     CircleShape getObject();
+    CircleShape getObject1();
 
     void moveForward();
 
@@ -40,7 +47,7 @@ public:
 
     void update(float elapsedTime);
 
-    int zeroFunc(int value);
+    float zeroFunc(float value, float step);
 };
 
 #endif // OBJECT2D_H

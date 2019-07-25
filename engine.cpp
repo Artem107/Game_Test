@@ -1,12 +1,10 @@
 #include "engine.h"
+#include "math.h"
 
 Engine::Engine()
 {
-    Vector2f resolution;
-        resolution.x = VideoMode::getDesktopMode().width;
-        resolution.y = VideoMode::getDesktopMode().height;
 
-        m_Window.create(VideoMode(resolution.x/1.2, resolution.y/1.2),
+        m_Window.create(VideoMode(800, 600),
             "Simple Game Engine");
 
         m_Window.setFramerateLimit(60);
@@ -64,6 +62,24 @@ void Engine::input()
         object2D.stopBack();
     }
 
+    if (Keyboard::isKeyPressed(Keyboard::A))
+    {
+        object2D.rotateLeft();
+    }
+    else
+    {
+        object2D.stopLeft();
+    }
+
+    if (Keyboard::isKeyPressed(Keyboard::D))
+    {
+        object2D.rotateRight();
+    }
+    else
+    {
+        object2D.stopRight();
+    }
+
 }
 
 void Engine::update(float dtAsSeconds)
@@ -78,6 +94,7 @@ void Engine::draw()
 
     // Отрисовываем фон
     m_Window.draw(object2D.getObject());
+    m_Window.draw(object2D.getObject1());
 
     // Отображаем все, что нарисовали
     m_Window.display();
